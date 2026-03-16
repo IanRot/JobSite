@@ -10,6 +10,8 @@
         }, 1);
     };
     spinner();
+
+    
     
     
     // Initiate the wowjs
@@ -79,3 +81,14 @@
     
 })(jQuery);
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+});
+
+document.querySelectorAll(".fade-job").forEach(el => {
+    observer.observe(el);
+});
